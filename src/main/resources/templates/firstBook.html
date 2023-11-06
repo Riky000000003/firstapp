@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina Libro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dettagli del Libro</h1>
+    <table>
+        <tr>
+            <th>Book Id</th>
+            <th>Book Name</th>
+            <th>ISBN</th>
+            <th>Publisher</th>
+        </tr>
+        <tr>
+            <td th:text="${firstbook.id}"></td>
+            <td th:text="${firstbook.title}"></td>
+            <td th:text="${firstbook.isbn}"></td>
+            <td th:text="${firstbook.publisher.getPublisherName()}"></td>
+        </tr>
+    </table>
+</body>
+</html>
