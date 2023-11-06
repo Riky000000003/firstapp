@@ -1,6 +1,8 @@
 package io.example.firstapp.controllers;
 
+import io.example.firstapp.services.AuthorService;
 import io.example.firstapp.services.BookService;
+import io.example.firstapp.services.PublisherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
