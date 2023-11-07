@@ -6,4 +6,5 @@ public interface BookService
 {
     Iterable<Book> findAll();
     Book getFirstBook();
+    Book getBookByID(long id);
 }

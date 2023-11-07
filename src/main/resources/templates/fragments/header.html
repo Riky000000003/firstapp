@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header th:fragment="block-header">
+        <a th:href="${'/'}">Home Page</a>
+        <a th:href="${'/book/books'}">Lista dei libri</a>
+        <a th:href="${'/author/authors'}">Lista dei Autori</a>
+        <a th:href="${'/publisher/publishers'}">Lista dei Editori</a>
+    </header>
+</body>
+</html>

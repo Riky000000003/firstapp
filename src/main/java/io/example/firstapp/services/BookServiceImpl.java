@@ -31,4 +31,22 @@ public class BookServiceImpl implements BookService {
             return new Book();
         }
     }
+    @Override
+    public Book getBookByID(long id) {
+        if(bookRepository.count()!=0) //serve per controllare se esistono i libri
+        {
+            for (Book b: bookRepository.findAll())
+            {
+                if(b.getId()==id)
+                {
+                    return b;
+                }
+            }
+            return new Book();
+        }
+        else
+        {
+            return new Book();
+        }
+    }
 }

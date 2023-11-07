@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/author/")
 public class AuthorController
 {
     private final AuthorService authorService;
@@ -17,12 +18,12 @@ public class AuthorController
     public String getAuthors(Model model)
     {
         model.addAttribute("authors", authorService.findAll());
-        return "authors";
+        return "author/authors";
     }
     @RequestMapping("/firstauthor")
     public String getFirstAuthor(Model model)
     {
         model.addAttribute("author", authorService.getFirstAuthor());
-        return "firstAuthor";
+        return "author/firstAuthor";
     }
 }

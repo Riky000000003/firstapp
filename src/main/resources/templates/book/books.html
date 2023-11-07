@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina Libri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        th {
+            background-color: black;
+            color: white;
+        }
+        td
+        {
+            background-color: white;
+            color: black;
+        }
+        a
+        {
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Books</h1>
+    <div th:insert="fragments/header :: block-header"></div>
+    <table th:border="1">
+        <tr>
+            <th>Book Id</th>
+            <th>Book Name</th>
+            <th>ISBN</th>
+            <th>Publisher</th>
+            <!-- <th>Dettaglio Libro</th> -->
+        </tr>
+        <tr th:each="book: ${books}">
+            <td>
+                <a th:href="@{'bookById/'+${book.id}}" th:text="${book.id}"></a>
+            </td>
+            <td th:text = "${book.title}"></td>
+            <td th:text = "${book.isbn}"></td>
+            <td th:text="${book.publisher.getPublisherName()}"></td>
+            <!--<td>
+                <a th:href="@{/bookById/{id}(id= ${book.id})}">Dettagli libro</a>
+            </td> -->
+        </tr>
+    </table>
+</body>
+</html>

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/publisher/")
 public class PublisherController
 {
     private final PublisherService publisherService;
@@ -17,12 +18,12 @@ public class PublisherController
     public String getPublishers(Model model)
     {
         model.addAttribute("publishers", publisherService.findAll());
-        return "publishers";
+        return "publisher/publishers";
     }
     @RequestMapping("/firstpublisher")
     public String getFirstPublisher(Model model)
     {
         model.addAttribute("publisher", publisherService.getFirstPublisher());
-        return "firstPublisher";
+        return "publisher/firstPublisher";
     }
 }

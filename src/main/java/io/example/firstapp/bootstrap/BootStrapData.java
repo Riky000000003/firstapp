@@ -30,8 +30,8 @@ public class BootStrapData implements CommandLineRunner
     public void run(String... args) throws Exception
     {
         System.out.println("Bootstrap - Start");
+        /*creare un publisher
 
-        //creare un publisher
         Publisher p1 = new Publisher();
         p1.setPublisherName("pippo");
         p1.setCity("Milano");
@@ -54,6 +54,30 @@ public class BootStrapData implements CommandLineRunner
         b1.addAuthor(a1);
         //salvo il libro nel database
         Book b1Saved = bookRepository.save(b1);
+         */
+
+        for (int i = 0; i < 10; i++) {
+            Publisher publisher = new Publisher();
+            publisher.setPublisherName("Publisher Name " + i);
+            publisher.setAddress("Address " + i);
+            publisher.setCity("City " + i);
+            publisher.setState("State " + i);
+            publisher.setZipCode("Zip " + i);
+            Publisher publisherSaved = publisherRepositery.save(publisher);
+
+            Author author = new Author();
+            author.setFirstname("Author First Name " + i);
+            author.setLastname("Author Last Name " + i);
+            Author authorSaved = authorRepository.save(author);
+
+            Book book = new Book();
+            book.setTitle("Book Title " + i);
+            book.setIsbn("ISBN " + i);
+            book.setPublisher(publisherSaved);
+            book.addAuthor(author);
+            Book bookSaved = bookRepository.save(book);
+
+        }
 
         System.out.println("Bootstrap - End");
     }
